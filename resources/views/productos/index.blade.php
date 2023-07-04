@@ -3,13 +3,25 @@
 
 @section('contenido')
 
-@if(Session::has('message'))
-<div class="alert alert-success alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  {{Session::get('message')}}
+<div id="cierraDiv">
+    @if(Session::has('message'))
+       <p style="background-color:#7ce1e6"; onclick="cerrar();>{{Session::get('message')}}</p>
+    @endif
 </div>
-@endif
 
+
+<div id="cierraDiv1">
+    @if(session("mensaje") && session("tipo"))
+           <p style="background-color:#7ce1e6"; onclick="cerrar();">{{session('mensaje')}}</p> 
+    @endif
+</div>
+
+
+<div id="cierraDiv2">
+    @if(Session::has('delete'))
+       <p style="background-color:#7ce1e6"; onclick="cerrar();"">{{Session::get('delete')}}</p>
+    @endif
+</div>
 
 <div class="container">
 <table class="table">
@@ -50,4 +62,33 @@
     </tbody>
 </table> 
 </div>
-@endsection      
+@endsection  
+
+
+
+<script>
+    function cerrar()
+    {
+        var x = document.getElementById("cierraDiv");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+
+        var x2 = document.getElementById("cierraDiv1");
+        if (x2.style.display === "none") {
+                x2.style.display = "block";
+            } else {
+                x2.style.display = "none";
+            }
+    
+         var x3 = document.getElementById("cierraDiv2");
+        if (x3.style.display === "none") {
+                x3.style.display = "block";
+            } else {
+                x3.style.display = "none";
+            }    
+    }
+
+</script>

@@ -45,7 +45,7 @@ class ProductoController extends Controller
     {
         //dd($id);
         $id->delete();
-        return redirect()->route('listado')->with('success', 'Producto eliminado con éxito');
+        return redirect()->route('listado')->with('delete', 'Producto eliminado con éxito');
     }
 
     public function edit($id)
@@ -62,7 +62,7 @@ class ProductoController extends Controller
         $producto->precio = $request->precio;
         $producto->cantidad = $request->cantidad;
         $producto->save();
-        return redirect()->route('listado')->with('success', 'Producto editado con éxito');
+        return redirect()->route('listado')->with('mensaje', 'Producto editado con éxito')->with("tipo", 'Exito');;
     }
 
 

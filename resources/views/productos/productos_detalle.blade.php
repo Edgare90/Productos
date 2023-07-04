@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Precio</label>
-        <textarea class="form-control" id="precio" name="precio">{{ $productos->precio }}</textarea>
+        <input type="text" class="form-control" id="precio" name="precio" value="{{ $productos->precio }}">
       </div>
       <div class="form-group">
           <label for="sku">Cantidad</label>
